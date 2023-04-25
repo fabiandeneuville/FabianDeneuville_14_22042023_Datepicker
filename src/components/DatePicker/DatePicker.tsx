@@ -47,14 +47,26 @@ function DatePicker(props: DatePickerProps){
     };
 
     const handleOnClick = (): void => {
-        setDisplayCalendar(!displayCalendar)
-    }
+        setDisplayCalendar(!displayCalendar);
+    };
+
+    const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>): void => {
+        if(e.key === "Backspace"){
+            setDatePicked("");
+        }
+    };
 
     return (
         <DatePickerContainer>
             <DatePickerFormGroup>
                 <DatePickerLabel>{props.label}</DatePickerLabel>
-                <DatePickerInput value={datePicked} required={props.required} onChange={handleOnChange} onKeyUp={handleKeyUpAndFormat} onClick={handleOnClick}/>
+                <DatePickerInput 
+                value={datePicked} 
+                required={props.required} 
+                onChange={handleOnChange} 
+                onKeyUp={handleKeyUpAndFormat} 
+                onClick={handleOnClick} 
+                onKeyDown={handleKeyPress}/>
             </DatePickerFormGroup>
             {displayCalendar &&
                 <Calendar
