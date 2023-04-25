@@ -128,8 +128,14 @@ export const getNextMonth = (month: number, year: number): monthObject => {
         month: nextMonth,
         year: nextMonthYear
     };
-}
+};
 
+/**
+ * Function that returns an array of dates as array
+ * @param {number} month - month as number
+ * @param {number} year - full year (example 2023)
+ * @returns {[number, string, string][]} array of dates as array
+ */
 export const calendarBuilder = (month: number, year: number): [number, string, string][] => {
 
     const currentMonthDays: number = getMonthNumberOfDays(month, year);
@@ -160,4 +166,17 @@ export const calendarBuilder = (month: number, year: number): [number, string, s
         ];
     });
     return [...previousMonthDates, ...currentMonthDates, ...nextMonthDates];
+};
+
+/**
+ * Function to convert previously created date as array to a date as string
+ * @param {[number, string, string]} date date as an array
+ * @returns {string} date as a string
+ */
+export const getDateISO = (date: [number, string, string]): string => {
+    return [
+        date[0],
+        date[1],
+        date[2]
+    ].join('-');
 };

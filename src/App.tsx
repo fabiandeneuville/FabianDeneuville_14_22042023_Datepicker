@@ -1,13 +1,13 @@
 import GlobalStyle from "./globalStyle";
-import Calendar from "./components/Calendar/Calendar";
+import DatePicker from "./components/DatePicker/DatePicker";
 
 function App() {
   return (
     <>
       <GlobalStyle/>
-      <Calendar
-      date={new Date()}
-      onChange={(value: [number, string, string]) => console.log(value)}
+      <DatePicker
+      required={true}
+      label="Start Date (yyyy-mm-dd)"
       />
     </>
   )

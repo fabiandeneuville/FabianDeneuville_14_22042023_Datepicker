@@ -2,14 +2,18 @@ import styled from 'styled-components';
 import { ChevronProps, DayCardProps } from './propTypes';
 
 export const CalendarContainer = styled.div`
+    position: absolute;
+    left: 0;
+    right: 0;
     display: flex;
     flex-direction: column;
     gap: 5px;
-    margin: 10px;
+    margin-top: 5px;
     @media (max-width: 380px) {
         font-size: 10px;
     }
-    min-width: 300px;
+    min-width: 280px;
+    background-color: white;
 `;
 
 export const CalendarHeader = styled.div`
@@ -76,6 +80,7 @@ export const CalendarGrid = styled.div`
     border: 2px solid black;
     border-radius: 5px;
     padding: 10px;
+    background-color: white;
     @media (max-width: 380px) {
         padding: 5px;
     }
