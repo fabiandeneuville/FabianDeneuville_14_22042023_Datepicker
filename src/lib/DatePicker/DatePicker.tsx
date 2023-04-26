@@ -1,7 +1,7 @@
 import { DatePickerProps } from "./propTypes";
 import Calendar from "../Calendar/Calendar";
 
-import { getDateISO } from "../../utils";
+import { getDateISO } from "../utils";
 
 import { 
     ChangeEvent, 

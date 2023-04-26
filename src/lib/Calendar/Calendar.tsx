@@ -23,7 +23,7 @@ import {
     getNextMonth,
     calendarBuilder,
     addZero
-} from '../../utils';
+} from '../utils';
 
 function Calendar(props: CalendarProps){
 

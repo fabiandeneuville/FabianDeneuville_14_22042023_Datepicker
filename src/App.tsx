@@ -1,4 +1,4 @@
-import DatePicker from "./components/DatePicker/DatePicker";
+import DatePicker from "./lib/DatePicker/DatePicker";
 
 function App() {
   return (
