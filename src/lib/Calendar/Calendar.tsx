@@ -77,7 +77,6 @@ function Calendar(props: CalendarProps){
         const {month, year} = getPreviousMonth(dateState.month, dateState.year);
         setDateState({...dateState, month, year});
         setIsDaySelected(false);
-        console.log(dateState.month)
     };
 
     const showNextMonth = (): void => {

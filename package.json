@@ -1,7 +1,7 @@
 {
   "name": "fd-react-datepicker",
   "private": false,
-  "version": "0.0.3",
+  "version": "0.1.1",
   "type": "module",
   "workplace": {
     "packages": [
@@ -45,7 +45,8 @@
     "styled-components": "^5.3.10"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "main": "./dist/fd-react-datepicker.umd.js",
   "module": "./dist/fd-react-datepicker.es.js",

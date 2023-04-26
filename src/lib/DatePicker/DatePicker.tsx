@@ -28,11 +28,11 @@ function DatePicker(props: DatePickerProps){
     
     useEffect(() => {
         props.onChange(datePicked);
-    }, [datePicked])
+    }, [datePicked]);
     
     const setDate = (date: [number, string, string]): void => {
         const dateString = getDateISO(date);
-        const dateObject = new Date(date[0], Number(date[1]) - 1, Number(date[2]))
+        const dateObject = new Date(date[0], Number(date[1]) - 1, Number(date[2]));
         setDatePicked(dateString);
         setDateDisplayed(dateObject);
         setDisplayCalendar(false);

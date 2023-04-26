@@ -12,8 +12,8 @@ export default defineConfig({
     ],
     build: {
         lib: {
-            entry: path.resolve(__dirname, 'src/lib/index.ts'),
-            name: 'fd-react-datepicker',
+            entry: path.resolve(__dirname, 'src/lib/DatePicker/DatePicker.tsx'),
+            name: 'DatePicker',
             formats: ['es', 'umd'],
             fileName: (format) => `fd-react-datepicker.${format}.js`,
         },
