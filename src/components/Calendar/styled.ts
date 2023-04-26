@@ -115,3 +115,10 @@ export const DayCard = styled.span<DayCardProps>`
         `
     }
 `;
+
+export const CalendarSelect = styled.select`
+    border: none;
+    font-size: 16px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+`;

@@ -29,9 +29,7 @@ function DatePicker(props: DatePickerProps){
         const dateObject = new Date(date[0], Number(date[1]) - 1, Number(date[2]))
         setDatePicked(dateString);
         setDateDisplayed(dateObject);
-        setTimeout(() => {
-            setDisplayCalendar(false)
-        }, 500);
+        setDisplayCalendar(false);
     };
 
     const handleOnChange = (e: ChangeEvent<HTMLInputElement> ): void => {

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ChangeEvent } from 'react';
 import { CalendarProps } from './propTypes';
 import { 
     CalendarContainer, 
@@ -8,7 +8,8 @@ import {
     CalendarDaysName,
     CalendarGrid,
     DayCard,
-    CalendarHouseButton
+    CalendarHouseButton,
+    CalendarSelect
 } from './styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight, faHouse } from '@fortawesome/free-solid-svg-icons';
@@ -72,13 +73,14 @@ function Calendar(props: CalendarProps){
         setIsDaySelected(true);
     };
     
-    const showPreviousMonth = () => {
+    const showPreviousMonth = (): void => {
         const {month, year} = getPreviousMonth(dateState.month, dateState.year);
         setDateState({...dateState, month, year});
         setIsDaySelected(false);
+        console.log(dateState.month)
     };
 
-    const showNextMonth = () => {
+    const showNextMonth = (): void => {
         const {month, year} = getNextMonth(dateState.month, dateState.year);
         setDateState({...dateState, month, year});
         setIsDaySelected(false);
@@ -94,13 +96,48 @@ function Calendar(props: CalendarProps){
         setIsDaySelected(true);
     };
 
+    const handleSelectMonth = (e: ChangeEvent<HTMLSelectElement>): void => {
+        setDateState({
+            ...dateState,
+            month: Number(e.target.value)
+        });
+        setIsDaySelected(false);
+    };
+
+    const handleSelectYear = (e: ChangeEvent<HTMLSelectElement>): void => {
+        setDateState({
+            ...dateState,
+            year: Number(e.target.value)
+        });
+        setIsDaySelected(false);
+    };
 
     return (
         <CalendarContainer>
             <CalendarHeader>
                 <CalendarHeaderArrow position="left" onClick={() => showPreviousMonth()}><FontAwesomeIcon icon={faChevronLeft}/></CalendarHeaderArrow>
                 <CalendarHouseButton onClick={() => setTodayDate()}><FontAwesomeIcon icon={faHouse}/></CalendarHouseButton>
-                {`${Object.keys(CALENDAR_MONTHS)[dateState.month - 1]} - ${dateState.year}`}
+
+                {dateState.month && dateState.year &&
+                    <>
+                        <CalendarSelect name="month" id="month" value={dateState.month} onChange={handleSelectMonth}>
+                            {Object.keys(CALENDAR_MONTHS).map((month, index) => {
+                                return (
+                                    <option key={month} value={index + 1}>{month}</option>
+                                )
+                            })}
+                        </CalendarSelect>
+                        <CalendarSelect name="years" id="years" value={dateState.year} onChange={handleSelectYear}>
+                            {Array.from({length: 200}, (_, i) => 1900 + i).map((year) => {
+                                return (
+                                    <option key={year} value={year}>{year}</option>
+                                )
+                            })}
+                        </CalendarSelect>
+                    
+                    </>
+                }
+
                 <CalendarHeaderArrow position="right" onClick={() => showNextMonth()}><FontAwesomeIcon icon={faChevronRight}/></CalendarHeaderArrow>
             </CalendarHeader>
             <CalendarDays>
