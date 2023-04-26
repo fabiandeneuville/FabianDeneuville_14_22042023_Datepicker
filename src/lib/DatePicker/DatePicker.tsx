@@ -1,5 +1,6 @@
 import { DatePickerProps } from "./propTypes";
 import Calendar from "../Calendar/Calendar";
+import { useEffect } from "react";
 
 import { getDateISO } from "../utils";
 
@@ -18,12 +19,17 @@ import {
 
 function DatePicker(props: DatePickerProps){
 
+    
     const todayDate = new Date()
     const todayString = (new Date()).toISOString().split('T')[0];
     const [displayCalendar, setDisplayCalendar] = useState<boolean>(false);
     const [datePicked, setDatePicked] = useState<string>(todayString);
-    const [dateDisplayed, setDateDisplayed] = useState<Date>(todayDate)
-
+    const [dateDisplayed, setDateDisplayed] = useState<Date>(todayDate);
+    
+    useEffect(() => {
+        props.onChange(datePicked);
+    }, [datePicked])
+    
     const setDate = (date: [number, string, string]): void => {
         const dateString = getDateISO(date);
         const dateObject = new Date(date[0], Number(date[1]) - 1, Number(date[2]))
