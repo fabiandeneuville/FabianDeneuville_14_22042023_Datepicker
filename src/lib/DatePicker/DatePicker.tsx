@@ -25,9 +25,11 @@ function DatePicker(props: DatePickerProps){
     const [datePicked, setDatePicked] = useState<string>(todayString);
     const [dateDisplayed, setDateDisplayed] = useState<Date>(todayDate);
     
+    const { onChange } = props;
+
     useEffect(() => {
-        props.onChange(datePicked);
-    }, [datePicked]);
+        onChange(datePicked);
+    }, [datePicked, onChange]);
     
     const setDate = (date: [number, string, string]): void => {
         const dateString = getDateISO(date);

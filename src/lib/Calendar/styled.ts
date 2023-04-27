@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { ChevronProps, DayCardProps } from './propTypes';
 
 export const CalendarContainer = styled.div`
-    position: absolute;
+
     left: 0;
     right: 0;
     display: flex;
@@ -13,7 +13,6 @@ export const CalendarContainer = styled.div`
         font-size: 10px;
     }
     min-width: 280px;
-    background-color: white;
 `;
 
 export const CalendarHeader = styled.div`
@@ -26,6 +25,7 @@ export const CalendarHeader = styled.div`
     align-items: center;
     padding: 10px;
     font-size: 20px;
+    background-color: white;
 `;
 
 export const CalendarHeaderArrow = styled.button<ChevronProps>`
@@ -61,6 +61,7 @@ export const CalendarDays = styled.div`
     padding: 10px;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
+    background-color: white;
     @media (max-width: 380px) {
         padding: 5px;
     }
@@ -88,6 +89,7 @@ export const CalendarGrid = styled.div`
 
 export const DayCard = styled.span<DayCardProps>`
     border: 1px solid lightgray;
+    cursor: pointer;
     border-radius: 5px;
     display: flex;
     justify-content: center;
@@ -121,4 +123,5 @@ export const CalendarSelect = styled.select`
     font-size: 16px;
     -webkit-appearance: none;
     -moz-appearance: none;
+    cursor: pointer;
 `;
