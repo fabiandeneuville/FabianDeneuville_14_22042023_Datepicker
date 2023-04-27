@@ -1,12 +1,15 @@
 # FD React Datepicker
 
-## Installation :
+
+## Basic React + Typescript DatePicker
+
+### Installation :
 
 ```
 npm i fd-react-datepicker
 ```
 
-## Use :
+### Use :
 
 ```
 import DatePicker from 'fd-react-datepicker';
@@ -19,5 +22,9 @@ import DatePicker from 'fd-react-datepicker';
         onChange={(date) => {}}
     />
 ```
-label, required and onChange props are required.
-Define your own onChange function to handle the date value.
+
+### Props :
+
+-   label: string - required
+-   required: boolean - required
+-   onChange: function - required

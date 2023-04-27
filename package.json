@@ -9,6 +9,10 @@
     ]
   },
   "author": "Fabian Deneuville",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fabiandeneuville/FabianDeneuville_14_22042023_Datepicker"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

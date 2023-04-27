@@ -70,7 +70,7 @@ export const CalendarDaysName = styled.span`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    padding: 5px;
 `;
 
 export const CalendarGrid = styled.div`
@@ -92,7 +92,7 @@ export const DayCard = styled.span<DayCardProps>`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    padding: 5px;
     ${(props) => 
         props.isSameMonth &&
         `font-weight: bold;
