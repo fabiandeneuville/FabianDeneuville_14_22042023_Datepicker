@@ -8,6 +8,13 @@ function App() {
       label="Start Date (yyyy-mm-dd)"
       onChange={(value) => console.log(value)}
       />
+      <DatePicker
+      required={true}
+      label="Start Date (yyyy-mm-dd)"
+      onChange={(value) => console.log(value)}
+      style={{color: 'red'}}
+      value={'1986-08-29'}
+      />
     </>
   )
 }

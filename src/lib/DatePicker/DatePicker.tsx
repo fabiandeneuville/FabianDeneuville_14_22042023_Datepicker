@@ -1,5 +1,6 @@
 import { DatePickerProps } from "./propTypes";
 import Calendar from "../Calendar/Calendar";
+import BasicInput from "./BasicInput";
 import { useEffect } from "react";
 import { getDateISO } from "../utils";
 
@@ -65,13 +66,30 @@ function DatePicker(props: DatePickerProps){
         <DatePickerContainer>
             <DatePickerFormGroup>
                 <DatePickerLabel>{props.label}</DatePickerLabel>
-                <DatePickerInput 
-                value={datePicked} 
-                required={props.required} 
-                onChange={handleOnChange} 
-                onKeyUp={handleKeyUpAndFormat} 
-                onClick={handleOnClick} 
-                onKeyDown={handleKeyPress}/>
+
+                {props.style || props.className ? (
+                    <BasicInput 
+                    value={datePicked} 
+                    required={props.required} 
+                    onChange={handleOnChange} 
+                    onKeyUp={handleKeyUpAndFormat} 
+                    onClick={handleOnClick} 
+                    onKeyDown={handleKeyPress}
+                    style={props.style}
+                    className={props.className}
+                    />
+                ) : (
+                    <DatePickerInput 
+                    value={datePicked} 
+                    required={props.required} 
+                    onChange={handleOnChange} 
+                    onKeyUp={handleKeyUpAndFormat} 
+                    onClick={handleOnClick} 
+                    onKeyDown={handleKeyPress}
+                    type={"text"}
+                    />
+
+                )}
             </DatePickerFormGroup>
             {displayCalendar &&
                 <Calendar

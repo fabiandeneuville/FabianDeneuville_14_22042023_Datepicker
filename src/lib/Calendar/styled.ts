@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { ChevronProps, DayCardProps } from './propTypes';
 
 export const CalendarContainer = styled.div`
-
+    position: relative;
     left: 0;
     right: 0;
     display: flex;
@@ -112,8 +112,7 @@ export const DayCard = styled.span<DayCardProps>`
     }
     ${(props) => 
         props.isActive && props.isSameMonth &&
-        `
-        background-color: black;
+        `background-color: black;
         `
     }
 `;

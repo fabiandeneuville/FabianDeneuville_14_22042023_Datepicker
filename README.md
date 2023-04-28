@@ -25,6 +25,11 @@ import DatePicker from 'fd-react-datepicker';
 
 ### Props :
 
--   label: string - required
--   required: boolean - required
--   onChange: function - required
+Required props : 
+-   label: string
+-   required: boolean 
+-   onChange: function
+
+Optional props: 
+-   style: object
+-   className: string
