@@ -10,6 +10,8 @@ export interface DatePickerProps {
     className?: string;
     style?: object
     value?: string
+    name? : string
+    id? : string
 }
 
 export interface BasicInputProps {
@@ -21,4 +23,6 @@ export interface BasicInputProps {
     onKeyDown: (e: KeyboardEvent<HTMLInputElement>) => void;
     style?: object;
     className?: string;
+    name? : string
+    id? : string
 }

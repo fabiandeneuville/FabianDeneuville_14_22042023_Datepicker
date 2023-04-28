@@ -33,3 +33,6 @@ Required props :
 Optional props: 
 -   style: object
 -   className: string
+-   id: string
+-   name: string
+-   value: string (yyyy-mm-dd)

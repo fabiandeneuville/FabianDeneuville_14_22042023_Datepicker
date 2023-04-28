@@ -17,9 +17,13 @@ import {
     DatePickerLabel
 } from "./styled";
 
+import {
+    getDateISOFromDate,
+    getDateArrayFromString
+} from "../utils";
+
 function DatePicker(props: DatePickerProps){
 
-    
     const todayDate = new Date()
     const todayString = (new Date()).toISOString().split('T')[0];
     const [displayCalendar, setDisplayCalendar] = useState<boolean>(false);
@@ -27,6 +31,18 @@ function DatePicker(props: DatePickerProps){
     const [dateDisplayed, setDateDisplayed] = useState<Date>(todayDate);
     
     const { onChange } = props;
+
+    useEffect(() => {
+        const initDate = () => {
+            const today = getDateISOFromDate(new Date())
+            const dateString = props.value ? props.value : today
+            const dateArray = getDateArrayFromString(dateString)
+            const dateObject = new Date(Number(dateArray[0]), Number(dateArray[1]) - 1, Number(dateArray[2]));
+            setDatePicked(dateString);
+            setDateDisplayed(dateObject);
+        }
+        initDate()
+    }, [props.value])
 
     useEffect(() => {
         onChange(datePicked);
@@ -77,6 +93,7 @@ function DatePicker(props: DatePickerProps){
                     onKeyDown={handleKeyPress}
                     style={props.style}
                     className={props.className}
+                    id={props.id ? props.id : "datepicker"}
                     />
                 ) : (
                     <DatePickerInput 
@@ -87,6 +104,9 @@ function DatePicker(props: DatePickerProps){
                     onClick={handleOnClick} 
                     onKeyDown={handleKeyPress}
                     type={"text"}
+                    id={props.id ? props.id : "datepicker"}
+                    name={props.name ? props.name : "datepicker"}
+                    pattern="\d{4}-\d{2}-\d{2}"
                     />
 
                 )}

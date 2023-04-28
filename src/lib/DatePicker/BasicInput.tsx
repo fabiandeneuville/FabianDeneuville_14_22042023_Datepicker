@@ -10,7 +10,11 @@ const BasicInput = (props : BasicInputProps) => {
         onKeyDown={props.onKeyDown}
         style={{...props.style, padding: '5px', textAlign: 'center'}}
         className={props.className}
-        type="text"/>
+        type="text"
+        id={props.id ? props.id : "datepicker"}
+        name={props.name ? props.name : "datepicker"}
+        pattern="\d{4}-\d{2}-\d{2}"
+        />
     )
 };
 

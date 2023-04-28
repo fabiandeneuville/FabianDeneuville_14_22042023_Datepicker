@@ -180,3 +180,28 @@ export const getDateISO = (date: [number, string, string]): string => {
         date[2]
     ].join('-');
 };
+
+/**
+ * Function to format Date object as string
+ * @param {Date} date date object
+ * @returns {string} date as a string
+ */
+export const getDateISOFromDate = (date: Date): string => {
+    const year = date.getFullYear();
+    const month = addZero(date.getMonth() + 1, 2);
+    const day = addZero(date.getDate(), 2)
+    return `${year}-${month}-${day}`
+};
+
+/**
+ * Function to format Date string as array
+ * @param {string} date date as a string yyyy-mm-dd
+ * @returns {(string|number)[]} date as an array
+ */
+export const getDateArrayFromString = (date: string): (string|number)[] => {
+    const year = date.split('-')[0];
+    const month = date.split('-')[1];
+    const day = date.split('-')[2];
+    const dateArray = [year, month, day]
+    return dateArray;
+};
