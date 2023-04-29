@@ -95,6 +95,7 @@ function DatePicker(props: DatePickerProps){
                     style={props.style}
                     className={props.className}
                     id={props.id ? props.id : "datepicker"}
+                    name={props.name ? props.name : "datepicker"}
                     />
                 ) : (
                     <DatePickerInput 
