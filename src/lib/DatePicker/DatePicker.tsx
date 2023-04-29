@@ -1,6 +1,5 @@
 import { DatePickerProps } from "./propTypes";
 import Calendar from "../Calendar/Calendar";
-import BasicInput from "./BasicInput";
 import { getDateISO } from "../utils";
 
 import { 
@@ -65,34 +64,20 @@ function DatePicker(props: DatePickerProps){
                 {props.label &&
                     <DatePickerLabel>{props.label}</DatePickerLabel>
                 }
-                {props.style || props.className ? (
-                    <BasicInput 
-                    value={datePicked} 
-                    readonly
-                    required={props.required? props.required: false} 
-                    onChange={handleOnChange} 
-                    onClick={handleOnClick} 
-                    onKeyDown={handleKeyPress}
-                    style={props.style}
-                    className={props.className}
-                    id={props.id ? props.id : "datepicker"}
-                    name={props.name ? props.name : "datepicker"}
-                    />
-                ) : (
-                    <DatePickerInput 
-                    value={datePicked}
-                    readOnly
-                    required={props.required? props.required: false} 
-                    onChange={handleOnChange} 
-                    onClick={handleOnClick} 
-                    onKeyDown={handleKeyPress}
-                    type={"text"}
-                    id={props.id ? props.id : "datepicker"}
-                    name={props.name ? props.name : "datepicker"}
-                    pattern="\d{4}-\d{2}-\d{2}"
-                    />
-
-                )}
+                <DatePickerInput 
+                value={datePicked}
+                readOnly
+                required={props.required? props.required: false} 
+                onChange={handleOnChange} 
+                onClick={handleOnClick} 
+                onKeyDown={handleKeyPress}
+                type={"text"}
+                id={props.id ? props.id : "datepicker"}
+                name={props.name ? props.name : "datepicker"}
+                pattern="\d{4}-\d{2}-\d{2}"
+                style={props.style}
+                className={props.className}
+                />
             </DatePickerFormGroup>
             {displayCalendar &&
                 <Calendar
