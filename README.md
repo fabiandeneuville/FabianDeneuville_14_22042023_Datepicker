@@ -17,7 +17,6 @@ import DatePicker from 'fd-react-datepicker';
 
 ```
     <DatePicker
-        label={'Date'}
         required={true}
         onChange={(date) => {}}
     />
@@ -26,11 +25,11 @@ import DatePicker from 'fd-react-datepicker';
 ### Props :
 
 #### Required props : 
--   label: string
 -   required: boolean 
 -   onChange: function
 
 #### Optional props: 
+-   label: string
 -   style: object
 -   className: string
 -   id: string

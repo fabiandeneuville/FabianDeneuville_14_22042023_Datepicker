@@ -81,8 +81,9 @@ function DatePicker(props: DatePickerProps){
     return (
         <DatePickerContainer>
             <DatePickerFormGroup>
-                <DatePickerLabel>{props.label}</DatePickerLabel>
-
+                {props.label &&
+                    <DatePickerLabel>{props.label}</DatePickerLabel>
+                }
                 {props.style || props.className ? (
                     <BasicInput 
                     value={datePicked} 

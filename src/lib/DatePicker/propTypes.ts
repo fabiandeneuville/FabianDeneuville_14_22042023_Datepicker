@@ -4,7 +4,7 @@ import {
 } from "react";
 
 export interface DatePickerProps {
-    label: string;
+    label?: string;
     required: boolean;
     onChange: (date: string) => void;
     className?: string;
