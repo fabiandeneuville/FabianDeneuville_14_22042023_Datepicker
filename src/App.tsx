@@ -4,9 +4,16 @@ function App() {
   return (
     <>
       <DatePicker
-      required={true}
+      name={'datePicker'}
       label="Start Date (yyyy-mm-dd)"
-      onChange={(value) => console.log(value)}
+      onChange={(e) => console.log(e.target)}
+      />
+      <DatePicker
+      required={true}
+      name={'datePicker'}
+      label="Start Date (yyyy-mm-dd)"
+      onChange={(e) => console.log(e.target)}
+      value={"2000-07-04"}
       />
     </>
   )

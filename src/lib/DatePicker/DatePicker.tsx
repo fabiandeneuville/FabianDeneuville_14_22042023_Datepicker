@@ -1,7 +1,6 @@
 import { DatePickerProps } from "./propTypes";
 import Calendar from "../Calendar/Calendar";
 import BasicInput from "./BasicInput";
-import { useEffect } from "react";
 import { getDateISO } from "../utils";
 
 import { 
@@ -17,36 +16,14 @@ import {
     DatePickerLabel
 } from "./styled";
 
-import {
-    getDateISOFromDate,
-    getDateArrayFromString
-} from "../utils";
-
 function DatePicker(props: DatePickerProps){
 
     const todayDate = new Date()
-    const todayString = (new Date()).toISOString().split('T')[0];
     const [displayCalendar, setDisplayCalendar] = useState<boolean>(false);
-    const [datePicked, setDatePicked] = useState<string>(todayString);
+    const [datePicked, setDatePicked] = useState<string>(props.value ? props.value : "");
     const [dateDisplayed, setDateDisplayed] = useState<Date>(todayDate);
-    
-    const { onChange } = props;
 
-    useEffect(() => {
-        const initDate = () => {
-            const today = getDateISOFromDate(new Date())
-            const dateString = props.value ? props.value : today
-            const dateArray = getDateArrayFromString(dateString)
-            const dateObject = new Date(Number(dateArray[0]), Number(dateArray[1]) - 1, Number(dateArray[2]));
-            setDatePicked(dateString);
-            setDateDisplayed(dateObject);
-        }
-        initDate()
-    }, [props.value])
-
-    useEffect(() => {
-        onChange(datePicked);
-    }, [datePicked, onChange]);
+    const {onChange, name} = props
     
     const setDate = (date: [number, string, string]): void => {
         const dateString = getDateISO(date);
@@ -54,18 +31,22 @@ function DatePicker(props: DatePickerProps){
         setDatePicked(dateString);
         setDateDisplayed(dateObject);
         setDisplayCalendar(false);
+        onChange({
+            target: {
+                name,
+                value: dateString
+            }
+        });
     };
 
     const handleOnChange = (e: ChangeEvent<HTMLInputElement> ): void => {
         setDatePicked(e.target.value);
-    };
-
-    const handleKeyUpAndFormat = (e: KeyboardEvent<HTMLInputElement>): void => {
-        let value = e.currentTarget.value.replace(/\D/g, "");
-        value = value.substring(0, 8);
-        value = value.replace(/^(\d{4})(\d{2})(\d{2})$/, "$1-$2-$3")
-        setDatePicked(value);
-        setDisplayCalendar(false);
+        onChange({
+            target: {
+                name,
+                value: datePicked
+            }
+        })
     };
 
     const handleOnClick = (): void => {
@@ -87,9 +68,9 @@ function DatePicker(props: DatePickerProps){
                 {props.style || props.className ? (
                     <BasicInput 
                     value={datePicked} 
-                    required={props.required} 
+                    readonly
+                    required={props.required? props.required: false} 
                     onChange={handleOnChange} 
-                    onKeyUp={handleKeyUpAndFormat} 
                     onClick={handleOnClick} 
                     onKeyDown={handleKeyPress}
                     style={props.style}
@@ -99,10 +80,10 @@ function DatePicker(props: DatePickerProps){
                     />
                 ) : (
                     <DatePickerInput 
-                    value={datePicked} 
-                    required={props.required} 
+                    value={datePicked}
+                    readOnly
+                    required={props.required? props.required: false} 
                     onChange={handleOnChange} 
-                    onKeyUp={handleKeyUpAndFormat} 
                     onClick={handleOnClick} 
                     onKeyDown={handleKeyPress}
                     type={"text"}

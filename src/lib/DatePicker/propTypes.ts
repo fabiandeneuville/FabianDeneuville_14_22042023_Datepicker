@@ -3,22 +3,28 @@ import {
     KeyboardEvent 
 } from "react";
 
+export interface onChangeParameters {
+    target: {
+        name: string, 
+        value: string
+    }
+}
 export interface DatePickerProps {
     label?: string;
-    required: boolean;
-    onChange: (date: string) => void;
+    required?: boolean;
+    onChange: (e: onChangeParameters) => void;
     className?: string;
     style?: object
     value?: string
-    name? : string
+    name : string
     id? : string
 }
 
 export interface BasicInputProps {
+    readonly: boolean
     value: string;
-    required: boolean;
+    required?: boolean;
     onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-    onKeyUp: (e: KeyboardEvent<HTMLInputElement>) => void;
     onClick: () => void;
     onKeyDown: (e: KeyboardEvent<HTMLInputElement>) => void;
     style?: object;
