@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const DatePickerContainer = styled.div`
-    position: relative;
+    // position: relative;
 `;
 
 export const DatePickerFormGroup = styled.div`
@@ -22,8 +22,6 @@ export const DatePickerInput = styled.input`
     text-align: center;
     padding: 10px;
     font-size: 16px;
-    border: 2px solid black;
-    border-radius: 5px;
     cursor: pointer;
     ::placeholder {
         opacity: 0.5;

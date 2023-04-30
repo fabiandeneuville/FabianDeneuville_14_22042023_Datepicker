@@ -3,12 +3,12 @@ import { ChevronProps, DayCardProps } from './propTypes';
 
 export const CalendarContainer = styled.div`
     position: absolute;
-    z-index: 1000;
-    left: 0;
-    right: 0;
+    border: 1px solid black;
+    border-radius: 5px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap:1px;
     margin-top: 5px;
     @media (max-width: 380px) {
         font-size: 10px;
@@ -17,9 +17,8 @@ export const CalendarContainer = styled.div`
 `;
 
 export const CalendarHeader = styled.div`
-    border: 2px solid black;
-    border-radius: 5px;
     position: relative;
+    border-bottom: 1px solid black;
     display: flex;
     gap: 20px;
     justify-content: center;
@@ -57,8 +56,6 @@ export const CalendarHouseButton = styled.div`
 `;
 
 export const CalendarDays = styled.div`
-    border: 2px solid black;
-    border-radius: 5px;
     padding: 10px;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -73,14 +70,13 @@ export const CalendarDaysName = styled.span`
     justify-content: center;
     align-items: center;
     padding: 5px;
+    border-bottom: 1px solid black;
 `;
 
 export const CalendarGrid = styled.div`
     display: grid;
     grid-template: repeat(6, auto) / repeat(7, 1fr);
     gap: 2px;
-    border: 2px solid black;
-    border-radius: 5px;
     padding: 10px;
     background-color: white;
     @media (max-width: 380px) {
