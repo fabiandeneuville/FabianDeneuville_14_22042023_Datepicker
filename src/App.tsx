@@ -8,6 +8,11 @@ function App() {
       label="Start Date (yyyy-mm-dd)"
       onChange={(e) => console.log(e.target)}
       />
+      <DatePicker
+      name={'datePicker'}
+      label="Start Date (yyyy-mm-dd)"
+      onChange={(e) => console.log(e.target)}
+      />
     </>
   )
 }

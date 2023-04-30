@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import { ChevronProps, DayCardProps } from './propTypes';
 
 export const CalendarContainer = styled.div`
-    position: relative;
+    position: absolute;
+    z-index: 1000;
     left: 0;
     right: 0;
     display: flex;

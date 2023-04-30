@@ -112,7 +112,7 @@ function Calendar(props: CalendarProps){
     };
 
     return (
-        <CalendarContainer>
+        <CalendarContainer onMouseLeave={() => props.onMouseLeave()}>
             <CalendarHeader>
                 <CalendarHeaderArrow position="left" onClick={() => showPreviousMonth()}><FontAwesomeIcon icon={faChevronLeft}/></CalendarHeaderArrow>
                 <CalendarHouseButton onClick={() => setTodayDate()}><FontAwesomeIcon icon={faHouse}/></CalendarHouseButton>
