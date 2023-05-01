@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { DatePickerProps } from "./propTypes";
 import Calendar from "../Calendar/Calendar";
 import { getDateISO } from "../utils";
@@ -16,6 +17,11 @@ import {
 } from "./styled";
 
 function DatePicker(props: DatePickerProps){
+
+    useEffect(() => {
+        const value = props.value ? props.value : "";
+        setDatePicked(value)
+    }, [props.value])
 
     const todayDate = new Date()
     const [displayCalendar, setDisplayCalendar] = useState<boolean>(false);
@@ -84,7 +90,6 @@ function DatePicker(props: DatePickerProps){
                 pattern="\d{4}-\d{2}-\d{2}"
                 style={props.style}
                 className={props.className}
-                placeholder={props.placeholder ? props.placeholder : "yyyy-mm-dd"}
                 onKeyUp={handleKeyUpAndFormat}
                 />
             </DatePickerFormGroup>

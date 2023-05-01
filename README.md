@@ -35,4 +35,3 @@ import DatePicker from 'fd-react-datepicker';
 -   className: string
 -   id: string
 -   value: string (yyyy-mm-dd)
--   placeholder: string // default is yyyy-mm-dd
