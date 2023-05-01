@@ -151,6 +151,7 @@ function Calendar(props: CalendarProps){
                     calendarBuilder(dateState.month, dateState.year).map((date, index) => {
                         return (
                             <DayCard
+                            role='button'
                             isActive={date[2] === addZero(dateState.day, 2) && isDaySelected}
                             isSameMonth={date[1] === addZero(dateState.month, 2)} 
                             key={index}

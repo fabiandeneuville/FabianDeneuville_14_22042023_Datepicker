@@ -84,7 +84,7 @@ export const CalendarGrid = styled.div`
     }
 `;
 
-export const DayCard = styled.span<DayCardProps>`
+export const DayCard = styled.button<DayCardProps>`
     border: 1px solid lightgray;
     cursor: pointer;
     border-radius: 5px;
