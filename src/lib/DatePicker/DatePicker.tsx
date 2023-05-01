@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { KeyboardEvent } from "react";
 import { DatePickerProps } from "./propTypes";
 import Calendar from "../Calendar/Calendar";
 import { getDateISO } from "../utils";
@@ -6,7 +6,6 @@ import { getDateISO } from "../utils";
 import { 
     ChangeEvent, 
     useState, 
-    KeyboardEvent 
 } from "react";
 
 import { 
@@ -17,11 +16,6 @@ import {
 } from "./styled";
 
 function DatePicker(props: DatePickerProps){
-
-    useEffect(() => {
-        const value = props.value ? props.value : "";
-        setDatePicked(value)
-    }, [props.value])
 
     const todayDate = new Date()
     const [displayCalendar, setDisplayCalendar] = useState<boolean>(false);
@@ -58,12 +52,6 @@ function DatePicker(props: DatePickerProps){
         setDisplayCalendar(!displayCalendar);
     };
 
-    const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>): void => {
-        if(e.key === "Backspace"){
-            setDatePicked("");
-        }
-    };
-
     const handleKeyUpAndFormat = (e: KeyboardEvent<HTMLInputElement>): void => {
         let value = e.currentTarget.value.replace(/\D/g, "");
         value = value.substring(0, 8);
@@ -82,15 +70,14 @@ function DatePicker(props: DatePickerProps){
                 value={datePicked}
                 required={props.required? props.required: false} 
                 onChange={handleOnChange} 
-                onClick={handleOnClick} 
-                onKeyDown={handleKeyPress}
+                onClick={handleOnClick}
+                onKeyUp={handleKeyUpAndFormat}
                 type={"text"}
                 id={props.id ? props.id : "datepicker"}
                 name={props.name ? props.name : "datepicker"}
                 pattern="\d{4}-\d{2}-\d{2}"
                 style={props.style}
                 className={props.className}
-                onKeyUp={handleKeyUpAndFormat}
                 />
             </DatePickerFormGroup>
             {displayCalendar &&
