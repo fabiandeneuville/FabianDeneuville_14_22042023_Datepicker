@@ -13,4 +13,5 @@ export interface DatePickerProps {
     value?: string
     name : string
     id? : string
+    placeholder?: string
 }

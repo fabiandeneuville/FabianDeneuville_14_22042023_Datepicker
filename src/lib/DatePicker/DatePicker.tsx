@@ -58,6 +58,14 @@ function DatePicker(props: DatePickerProps){
         }
     };
 
+    const handleKeyUpAndFormat = (e: KeyboardEvent<HTMLInputElement>): void => {
+        let value = e.currentTarget.value.replace(/\D/g, "");
+        value = value.substring(0, 8);
+        value = value.replace(/^(\d{4})(\d{2})(\d{2})$/, "$1-$2-$3")
+        setDatePicked(value);
+        setDisplayCalendar(false);
+    };
+
     return (
         <DatePickerContainer>
             <DatePickerFormGroup>
@@ -66,7 +74,6 @@ function DatePicker(props: DatePickerProps){
                 }
                 <DatePickerInput 
                 value={datePicked}
-                readOnly
                 required={props.required? props.required: false} 
                 onChange={handleOnChange} 
                 onClick={handleOnClick} 
@@ -77,6 +84,8 @@ function DatePicker(props: DatePickerProps){
                 pattern="\d{4}-\d{2}-\d{2}"
                 style={props.style}
                 className={props.className}
+                placeholder={props.placeholder ? props.placeholder : "yyyy-mm-dd"}
+                onKeyUp={handleKeyUpAndFormat}
                 />
             </DatePickerFormGroup>
             {displayCalendar &&
