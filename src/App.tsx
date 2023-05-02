@@ -6,13 +6,8 @@ function App() {
       <DatePicker
       name={'datePicker'}
       label="Start Date (yyyy-mm-dd)"
-      onChange={(e) => console.log(e.target)}
+      onChange={(e) => console.log(e.target.value)}
       value=""
-      />
-      <DatePicker
-      name={'datePicker'}
-      label="Start Date (yyyy-mm-dd)"
-      onChange={(e) => console.log(e.target)}
       />
     </>
   )
