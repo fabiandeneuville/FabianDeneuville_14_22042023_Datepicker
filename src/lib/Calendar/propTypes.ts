@@ -1,7 +1,6 @@
 export interface CalendarProps {
     date: Date,
     onChange: (value: [number, string, string]) => void,
-    onMouseLeave: () => void;
 }
 
 export interface ChevronProps {

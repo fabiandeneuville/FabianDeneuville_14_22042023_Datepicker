@@ -90,7 +90,6 @@ function DatePicker(props: DatePickerProps){
                 <Calendar
                 date={dateDisplayed}
                 onChange={(value: [number, string, string]) => setDate(value)}
-                onMouseLeave={() => setDisplayCalendar(false)}
                 />
             }
         </DatePickerContainer>
