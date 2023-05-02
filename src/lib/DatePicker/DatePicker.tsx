@@ -70,7 +70,7 @@ function DatePicker(props: DatePickerProps){
         <DatePickerContainer>
             <DatePickerFormGroup>
                 {props.label &&
-                    <DatePickerLabel>{props.label}</DatePickerLabel>
+                    <DatePickerLabel htmlFor={props.id ? props.id : "datepicker"}>{props.label}</DatePickerLabel>
                 }
                 <DatePickerInput 
                 value={datePicked}

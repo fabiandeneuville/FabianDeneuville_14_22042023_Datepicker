@@ -92,10 +92,12 @@ export const DayCard = styled.button<DayCardProps>`
     justify-content: center;
     align-items: center;
     padding: 5px;
+    font-size: 16px;
     ${(props) => 
         props.isSameMonth &&
         `font-weight: bold;
-        background-color: gray;
+        background-color: #333;
+        border: 2px solid #333;
         color: white;
         `
     }
@@ -103,13 +105,16 @@ export const DayCard = styled.button<DayCardProps>`
         !props.isSameMonth &&
         `font-weight: bold;
         background-color: lightgray;
-        color: #333;
+        color: black;
         opacity: 0.8;
+        border: 2px solid lightgray;
         `
     }
     ${(props) => 
         props.isActive && props.isSameMonth &&
-        `background-color: black;
+        `background-color: white;
+        color: black;
+        border: 2px solid #333;
         `
     }
 `;
