@@ -114,8 +114,8 @@ function Calendar(props: CalendarProps){
     return (
         <CalendarContainer>
             <CalendarHeader>
-                <CalendarHeaderArrow position="left" onClick={() => showPreviousMonth()}><FontAwesomeIcon icon={faChevronLeft}/></CalendarHeaderArrow>
-                <CalendarHouseButton onClick={() => setTodayDate()}><FontAwesomeIcon icon={faHouse}/></CalendarHouseButton>
+                <CalendarHeaderArrow type="button" role="button" position="left" onClick={() => showPreviousMonth()}><FontAwesomeIcon icon={faChevronLeft}/></CalendarHeaderArrow>
+                <CalendarHouseButton type="button" role="button" onClick={() => setTodayDate()}><FontAwesomeIcon icon={faHouse}/></CalendarHouseButton>
 
                 {dateState.month && dateState.year &&
                     <>
@@ -137,7 +137,7 @@ function Calendar(props: CalendarProps){
                     </>
                 }
 
-                <CalendarHeaderArrow position="right" onClick={() => showNextMonth()}><FontAwesomeIcon icon={faChevronRight}/></CalendarHeaderArrow>
+                <CalendarHeaderArrow type="button" role="button" position="right" onClick={() => showNextMonth()}><FontAwesomeIcon icon={faChevronRight}/></CalendarHeaderArrow>
             </CalendarHeader>
             <CalendarDays>
                 {Object.values(WEEK_DAYS).map((value, index) => {

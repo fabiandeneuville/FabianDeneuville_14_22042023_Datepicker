@@ -52,6 +52,12 @@ function DatePicker(props: DatePickerProps){
         setDisplayCalendar(!displayCalendar);
     };
 
+    const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>): void => {
+        if(e.code === "Enter"){
+            setDisplayCalendar(true);
+        }
+    }
+
     const handleKeyUpAndFormat = (e: KeyboardEvent<HTMLInputElement>): void => {
         let value = e.currentTarget.value.replace(/\D/g, "");
         value = value.substring(0, 8);
@@ -78,6 +84,7 @@ function DatePicker(props: DatePickerProps){
                 onChange={handleOnChange} 
                 onClick={handleOnClick}
                 onKeyUp={handleKeyUpAndFormat}
+                onKeyPress={handleKeyPress}
                 type={"text"}
                 id={props.id ? props.id : "datepicker"}
                 name={props.name ? props.name : "datepicker"}

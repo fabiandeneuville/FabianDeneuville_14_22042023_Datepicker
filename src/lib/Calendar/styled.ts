@@ -28,7 +28,7 @@ export const CalendarHeader = styled.div`
     background-color: white;
 `;
 
-export const CalendarHeaderArrow = styled.div<ChevronProps>`
+export const CalendarHeaderArrow = styled.button<ChevronProps>`
     position: absolute;
     cursor: pointer;
     background: transparent;
@@ -48,7 +48,7 @@ export const CalendarHeaderArrow = styled.div<ChevronProps>`
     }
 `;
 
-export const CalendarHouseButton = styled.div`
+export const CalendarHouseButton = styled.button`
     cursor: pointer;
     background: transparent;
     border: none;

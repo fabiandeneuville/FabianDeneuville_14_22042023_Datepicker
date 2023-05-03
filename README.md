@@ -1,7 +1,7 @@
 # FD React Datepicker
 
 
-## Basic React + Typescript DatePicker
+## Basic React + Typescript Accessible DatePicker
 
 ### Installation :
 
