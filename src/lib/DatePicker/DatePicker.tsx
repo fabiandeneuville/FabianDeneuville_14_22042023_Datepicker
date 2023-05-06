@@ -2,6 +2,7 @@ import { KeyboardEvent } from "react";
 import { DatePickerProps } from "./propTypes";
 import Calendar from "../Calendar/Calendar";
 import { getDateISO } from "../utils";
+import { useEffect } from "react";
 
 import { 
     ChangeEvent, 
@@ -21,6 +22,10 @@ function DatePicker(props: DatePickerProps){
     const [displayCalendar, setDisplayCalendar] = useState<boolean>(false);
     const [datePicked, setDatePicked] = useState<string>(props.value ? props.value : "");
     const [dateDisplayed, setDateDisplayed] = useState<Date>(todayDate);
+
+    useEffect(() => {
+        setDatePicked(props.value ? props.value : '')
+    }, [props.value])
 
     const {onChange, name} = props
     
